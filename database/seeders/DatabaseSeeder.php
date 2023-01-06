@@ -45,8 +45,8 @@ class DatabaseSeeder extends Seeder
 
         // $user->assignRole($role);
 
-        $defaultPermissions = ['lead-management', 'create-admin', ];
-        foreach($defaultPermissions as $permission) {
+        $defaultPermissions = ['lead-management', 'create-admin', 'user-management'];
+        foreach ($defaultPermissions as $permission) {
             Permission::create(['name' => $permission]);
         }
 
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
         if ($type == 'Super Admin') {
 
             $role->givePermissionTo(Permission::all());
-        } elseif($type == "Lead") {
+        } elseif ($type == "Lead") {
             $role->givePermissionTo("lead-management");
         }
 
